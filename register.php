@@ -1,10 +1,16 @@
 <?php
-$firstname= $_POST["firstname"];
-$lastname= $_POST["lastname"];
-$email= $_POST["email"];
-setcookie($cookie["firstname"], $firstname, time() + (86400 * 30), "/");
-setcookie($cookie["lastname"], $lastname, time() + (86400 * 30), "/");
-setcookie($cookie["email"], $email, time() + (86400 * 30), "/");
+$firstname= "";
+$lastname= "";
+$email= "";
+$firstname= $_POST["Firstname"];
+$lastname= $_POST["Lastname"];
+$email= $_POST["Email"];
+$visited= "true";
+setcookie("firstname", "$firstname", time()+ 600);
+setcookie("lastname", "$lastname", time()+ 600);
+setcookie("email", "$email", time()+ 600);
+setcookie("visited", "$visited", time()+ 600);
+
 ?>
 
 <html>
@@ -14,11 +20,12 @@ setcookie($cookie["email"], $email, time() + (86400 * 30), "/");
 <body>
 <?php
 	   
-       echo "POST variables: <br />";
+       echo "The information you submitted is: <br />";
        while ($curr = each($_POST)): 
             $key = $curr["key"];
             $val = $curr["value"];
-            echo "$key is $val <br />";
+            if($key!= "submit")
+            echo "$key: $val <br />";
        endwhile;
 ?>
 </body>

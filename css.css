@@ -1,0 +1,10 @@
+#myForm{
+	border: 1px solid black;
+	padding: 20px;
+}
+#myForm input{
+	margin-right: 30px;
+}
+h2{
+	margin-left: 40%;
+}
